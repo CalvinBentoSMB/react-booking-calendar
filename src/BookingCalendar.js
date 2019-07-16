@@ -43,6 +43,8 @@ export default class BookingCalendar extends Component {
 
   handleSelect(day) {
     if (this.props.clickable) {
+      console.log("handle select", day);
+      this.props.handleDayClick(day);
       this.setState({ selected: day.date });
     }
   }
@@ -106,6 +108,7 @@ BookingCalendar.propTypes = {
   clickable: PropTypes.bool,
   disableHistory: PropTypes.bool,
   selected: PropTypes.instanceOf(moment),
+  handleDayClick: PropTypes.func
 };
 
 BookingCalendar.defaultProps = {
@@ -113,4 +116,5 @@ BookingCalendar.defaultProps = {
   clickable: false,
   disableHistory: false,
   selected: moment().startOf('day'),
+  handleDayClick: null
 };
