@@ -1,6 +1,6 @@
 {
-  "name": "react-booking-calendar",
-  "version": "1.0.3",
+  "name": "react-event-booking-calendar",
+  "version": "1.0.6",
   "description": "react booking calendar generated",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "webpack -p",
     "start": "webpack-dev-server --inline --hot"
   },
-  "author": "Kristijan Bambir <kristijan.bambir@gmail.com> (http://kristijanbambir.from.hr)",
+  "author": "Skashi forked - Kristijan Bambir <kristijan.bambir@gmail.com> (http://kristijanbambir.from.hr)",
   "license": "MIT",
   "keywords": [
     "react",
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kristijanbambir/react-booking-calendar.git"
+    "url": "https://github.com/skashi/react-booking-calendar"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
