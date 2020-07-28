@@ -1,6 +1,6 @@
-$color-primary: #2196f3;
-$color-secondary: lighten($color-primary, 20%);
-$color-booked: darken($color-primary, 20%);
+$color-primary: white;
+$color-secondary: black;
+$color-booked: #a6d2ff;
 $border: solid 1px lighten($color-secondary, 20%);
 $skew-amount: -18deg;
 $spacing: 10px;
@@ -31,7 +31,7 @@ $screen-lg-min: 1200px;
 
 .booking-calendar {
   @include border-box();
-  background: #fff;
+  background: black;
   display: block;
   float: left;
   font-size: 14px;
@@ -42,7 +42,7 @@ $screen-lg-min: 1200px;
     @include border-box();
     background: $color-primary;
     border: $border;
-    color: #fff;
+    color: #212B36;
     height: 3em;
     position: relative;
 
@@ -52,7 +52,7 @@ $screen-lg-min: 1200px;
       .month-label {
         background: none;
         border: none;
-        color: #fff;
+        color: #212B36;
         cursor: pointer;
         font-size: 1.125em;
         font-weight: bold;
@@ -139,7 +139,7 @@ $screen-lg-min: 1200px;
         background: $color-primary;
         border-right: $border;
         bottom: 0;
-        color: #fff;
+        color: #212B36;
         cursor: pointer;
         font-size: 1em;
         left: 0;
@@ -167,7 +167,7 @@ $screen-lg-min: 1200px;
         }
 
         &.today {
-          background: $color-secondary;
+          background: rgb(44, 111, 255);
           color: #fff;
         }
 
