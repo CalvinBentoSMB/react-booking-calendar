@@ -157,10 +157,7 @@ $screen-lg-min: 1200px;
           }
         }
 
-        &.today {
-          background: rgb(44, 111, 255);
-          color: #fff;
-        }
+
 
         @mixin booking() {
           overflow: hidden;
@@ -180,23 +177,33 @@ $screen-lg-min: 1200px;
         }
 
         &.booked-day {
-          @include booking();
+          &:not(.today){
 
-          &:before {
-            @include bookingPseudo(18%);
+            @include booking();
+            
+            &:before {
+              @include bookingPseudo(18%);
+            }
           }
         }
 
         &.booked-night {
-          @include booking();
+          &:not(.today){
 
-          &:after {
-            @include bookingPseudo(-80%);
+            @include booking();
+            
+            &:after {
+              @include bookingPseudo(-80%);
+            }
           }
         }
 
         > .day-content {
           @include xy-center();
+        }
+        &.today {
+          background: rgb(44, 111, 255);
+          color: #fff;
         }
       }
     }
