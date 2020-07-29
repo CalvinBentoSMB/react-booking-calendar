@@ -215,26 +215,7 @@ $screen-lg-min: 1200px;
   }
 }
 
-@media (min-width: $screen-xs-min) {
-  .booking-calendar {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: $screen-sm-min) {
-  .booking-calendar {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: $screen-md-min) {
-  .booking-calendar {
-    font-size: 24px;
-  }
-}
-
-@media (min-width: $screen-lg-min) {
-  .booking-calendar {
-    font-size: 28px;
-  }
+.booking-calendar {
+  font-size: 18px;
+  width: 480px;
 }

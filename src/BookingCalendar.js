@@ -99,7 +99,6 @@ export default class BookingCalendar extends Component {
       </div>
     );
   }
-
 }
 
 BookingCalendar.propTypes = {
