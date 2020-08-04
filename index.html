@@ -5,6 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue-orange.min.css">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@shopify/polaris@5.1.0/dist/styles.css"
+  />
+
   <style>
     .mdl-layout__header-row {
       padding-left: 40px;
@@ -52,19 +57,13 @@
     const currentMonth = date.getMonth();
     ReactDOM.render(React.createElement(BookingCalendar, {
       bookings: [
-        new Date(currentYear, currentMonth, 3),
-        new Date(currentYear, currentMonth, 4),
-        new Date(currentYear, currentMonth, 5),
-        new Date(currentYear, currentMonth, 6),
-        new Date(currentYear, currentMonth, 7),
-        new Date(currentYear, currentMonth, 8),
-        new Date(currentYear, currentMonth, 9),
-        new Date(currentYear, currentMonth, 10),
-        new Date(currentYear, currentMonth, 19),
-        new Date(currentYear, currentMonth, 20),
-        new Date(currentYear, currentMonth, 21),
-        new Date(currentYear, currentMonth, 22),
-        new Date(currentYear, currentMonth, 23),
+        { date: new Date(currentYear, currentMonth, 3), type: 'block'},
+        { date: new Date(currentYear, currentMonth, 4), type: 'block'},
+        { date: new Date(currentYear, currentMonth, 5), type: 'block'},
+        { date: new Date(currentYear, currentMonth, 6), type: 'block'},
+        { date: new Date(currentYear, currentMonth, 7), type: 'block'},
+        { date: new Date(currentYear, currentMonth, 8), type: 'block'},
+        { date: new Date(currentYear, currentMonth, 5), type: 'reservation'}
       ]
     }), document.getElementById('main'));
   </script>

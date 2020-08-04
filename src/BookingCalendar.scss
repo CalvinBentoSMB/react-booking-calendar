@@ -197,7 +197,16 @@ $screen-lg-min: 1200px;
             }
           }
         }
-
+        &.block-day{
+          &:before {
+            background-color: #ffc7c7 !important;
+          }
+        }
+        &.block-night{
+          &:after {
+            background-color: #ffc7c7 !important;
+          }
+        }
         > .day-content {
           @include xy-center();
         }

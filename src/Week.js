@@ -14,24 +14,28 @@ const sortDatesAsc = (date1, date2) => {
 export default class Week extends React.Component {
 
   isBooked(date, isNight) {
-    let isBooked = false;
-    const sortedBookings = this.props.bookings.sort(sortDatesAsc);
+    let isBooked = false
+    let type = '';
+    const sortedBookings = this.props.bookings.sort(booking => sortDatesAsc(booking.date));
     for (let i = 0; i < sortedBookings.length; i += 1) {
-      const currentBooking = isNight ? moment(sortedBookings[i]).add(1, 'days') : sortedBookings[i];
+      const currentBooking = isNight ? moment(sortedBookings[i].date).add(1, 'days') : sortedBookings[i].date;
       if (date.isSame(currentBooking, 'day')) {
         isBooked = true;
+        type = sortedBookings[i].type
         break;
       }
     }
-    return isBooked;
+    return { booked: isBooked, type: isBooked ? type : '' };
   }
 
   isBookedDay(date) {
-    return this.isBooked(date, false);
+    const { booked, type } = this.isBooked(date, false)
+    return { booked, type };
   }
 
   isBookedNight(date) {
-    return this.isBooked(date, true);
+    const { booked, type } = this.isBooked(date, true)
+    return { booked, type };
   }
 
   render() {
@@ -40,16 +44,27 @@ export default class Week extends React.Component {
     let { date } = this.props;
 
     for (let i = 0; i < 7; i += 1) {
+      const dayBookedData = this.isBookedDay(date)
+      const nightBookedData = this.isBookedDay(date)
+      console.log('date', date)
+      console.log('dayBookedData', dayBookedData)
+      console.log('nightBookedData', nightBookedData)
+      const isBookedDay = dayBookedData.booked
+      const dayBookedType = dayBookedData.type
+      const isBookedNight = nightBookedData.booked
+      const nightBookedType = nightBookedData.type
+
       const day = {
         name: date.format('dd').substring(0, 1),
         number: date.date(),
-        isBookedDay: this.isBookedDay(date),
-        isBookedNight: this.isBookedNight(date),
+        isBookedDay: isBookedDay,
+        isBookedNight: isBookedNight,
+        dayBookedType: dayBookedType,
+        nightBookedType: nightBookedType,
         isCurrentMonth: date.month() === month.month(),
         isToday: date.isSame(new Date(), 'day'),
         date,
       };
-
       let className = '';
       if (day.isToday) {
         className += ' today';
@@ -69,7 +84,12 @@ export default class Week extends React.Component {
       if (!this.props.clickable) {
         className += ' not-clickable';
       }
-
+      if (day.dayBookedType === 'block'){
+        className+= ' block-day'
+      }
+      if (day.nightBookedType === 'block'){
+        className+= ' block-night'
+      }
       days.push(
         <Day
           key={day.date.toString()}
@@ -94,7 +114,7 @@ export default class Week extends React.Component {
 }
 
 Week.propTypes = {
-  bookings: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
+  bookings: PropTypes.array,
   clickable: PropTypes.bool.isRequired,
   date: PropTypes.instanceOf(moment).isRequired,
   month: PropTypes.instanceOf(moment).isRequired,
