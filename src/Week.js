@@ -46,9 +46,7 @@ export default class Week extends React.Component {
     for (let i = 0; i < 7; i += 1) {
       const dayBookedData = this.isBookedDay(date)
       const nightBookedData = this.isBookedDay(date)
-      console.log('date', date)
-      console.log('dayBookedData', dayBookedData)
-      console.log('nightBookedData', nightBookedData)
+
       const isBookedDay = dayBookedData.booked
       const dayBookedType = dayBookedData.type
       const isBookedNight = nightBookedData.booked
