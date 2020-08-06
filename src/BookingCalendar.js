@@ -7,12 +7,11 @@ import Week from './Week';
 import './BookingCalendar.scss';
 
 export default class BookingCalendar extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       previousDisabled: this.props.disableHistory,
-      month: props.selected.clone(),
+      month: moment(this.props.startDate),
       selected: props.selected,
     };
     this.handlePrevious = this.handlePrevious.bind(this);
